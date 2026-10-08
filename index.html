@@ -19,9 +19,19 @@
     color:#fff;background:#1b1a19;
     -webkit-font-smoothing:antialiased;
   }
-  .bg{
-    position:fixed;inset:0;z-index:-1;
-    background:linear-gradient(rgba(12,12,14,.68),rgba(12,12,14,.5) 40%,rgba(12,12,14,.72)),url("building-preserved.jpg") center center/contain no-repeat;
+  .bg{position:fixed;inset:0;z-index:-1}
+  .bg::before{
+    content:"";position:absolute;left:50%;top:50%;
+    width:min(100vw,calc(100vh * 1300 / 1252));
+    height:min(100vh,calc(100vw * 1252 / 1300));
+    transform:translate(-50%,-50%);
+    background:url("building-preserved.jpg") center/contain no-repeat;
+    -webkit-mask-image:linear-gradient(to right,transparent 0%,#000 18%,#000 82%,rgba(0,0,0,.94) 86%,rgba(0,0,0,.78) 90%,rgba(0,0,0,.5) 94%,rgba(0,0,0,.2) 97%,transparent 100%);
+    mask-image:linear-gradient(to right,transparent 0%,#000 18%,#000 82%,rgba(0,0,0,.94) 86%,rgba(0,0,0,.78) 90%,rgba(0,0,0,.5) 94%,rgba(0,0,0,.2) 97%,transparent 100%);
+  }
+  .bg::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(rgba(12,12,14,.68),rgba(12,12,14,.5) 40%,rgba(12,12,14,.72));
   }
   .wrap{
     max-width:440px;margin:0 auto;min-height:100%;
