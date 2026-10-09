@@ -42,6 +42,26 @@
   .map .addr{padding:0 16px 14px;text-align:center;font-size:12px;opacity:.8;line-height:1.5}
   svg.t{fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 </style>
+  <!-- 2026-10-09 GA4 (same property as ceramicdental.co.kr) + contact_click -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G2BPQL2PKV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-G2BPQL2PKV');
+    (function(){
+      document.addEventListener('click', function(e){
+        var a = e.target.closest ? e.target.closest('a') : null;
+        if(!a) return;
+        var href = a.getAttribute('href') || '', cta = '';
+        if(href.indexOf('tel:') === 0){ cta = 'tel'; }
+        else if(href.indexOf('pf.kakao.com') > -1){ cta = 'kakao'; }
+        else if(href.indexOf('wa.me/') > -1 || href.indexOf('api.whatsapp.com') > -1){ cta = 'whatsapp'; }
+        else if(href.indexOf('line.me/') > -1){ cta = 'line'; }
+        if(cta){ gtag('event', 'contact_click', {cta: cta, cta_position: 'link_page'}); }
+      }, true);
+    })();
+  </script>
 </head>
 <body>
 <main class="wrap">
