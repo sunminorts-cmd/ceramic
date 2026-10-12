@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>세라믹치과 연결 중</title>
+<style>body{margin:0;padding:64px 20px;font-family:-apple-system,'Malgun Gothic',sans-serif;text-align:center;color:#222}p{margin:0 0 14px}a{color:#000;font-weight:bold}</style>
+</head>
+<body>
+<p id="msg">연결 중입니다…</p>
+<p><a id="lnk" href="https://pf.kakao.com/_xjQixdu/chat">바로 이동</a></p>
+<script>
+(function(){
+  // 클릭 기록 → 구글 폼 '블로그·링크 버튼 클릭 기록' (sunminorts@gmail.com)
+  var FORM='https://docs.google.com/forms/d/e/1FAIpQLSeimfWhj9l-JInOM9-Wf1rojGDXFlHJ_mn1LqAB3vjfmTI2VA/formResponse';
+  var DEST={
+    kakao:'https://pf.kakao.com/_xjQixdu/chat',
+    tel:'tel:025170002',
+    booking:'https://m.booking.naver.com/booking/13/bizes/1227212',
+    line:'https://lin.ee/AiIx3P8',
+    home:'https://sunminorts-cmd.github.io/ceramic/'
+  };
+  var q=new URLSearchParams(location.search);
+  var to=q.get('to'); if(!DEST[to]) to='home';
+  var from=(q.get('from')||'direct').slice(0,40);
+  var dest=DEST[to];
+  document.getElementById('lnk').href=dest;
+  if(to==='tel') document.getElementById('msg').textContent='전화 상담 02-517-0002';
+  var data=new URLSearchParams({'entry.1853633824':from,'entry.1636204146':to,'entry.1900846812':(q.get('p')||document.referrer||'').slice(0,200)}).toString();
+  var done=false; function go(){ if(done) return; done=true; location.replace(dest); }
+  try{
+    if(navigator.sendBeacon && navigator.sendBeacon(FORM,new Blob([data],{type:'application/x-www-form-urlencoded'}))){ setTimeout(go,150); }
+    else { fetch(FORM,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:data}).then(go,go); setTimeout(go,900); }
+  }catch(e){ go(); }
+})();
+</script>
+</body>
+</html>
