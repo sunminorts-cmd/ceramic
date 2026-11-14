@@ -105,7 +105,7 @@
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1 1 0 0 0 0-1.41l-2.34-2.34a1 1 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
       <span>블로그</span>
     </a>
-    <a class="btn international-start" href="https://wa.me/821048832829?text=Hello!%20I%20found%20you%20on%20Instagram." target="_blank" rel="noopener">
+    <a class="btn international-start" href="https://wa.me/821048832829" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2a10 10 0 0 0-8.66 15L2 22l5.1-1.34A10 10 0 1 0 12 2zm0 2a8 8 0 1 1-4.12 14.86l-.35-.21-2.68.71.72-2.61-.23-.36A8 8 0 0 1 12 4z"/><path d="M8.1 7.4c-.3 0-.6.1-.8.4-.4.4-.7 1-.7 1.7 0 1.8 1.6 3.7 3.2 4.9 1.5 1.1 3.2 1.6 4.2 1.3.7-.2 1.3-.8 1.5-1.4.1-.3.1-.6-.1-.7l-1.9-.9c-.2-.1-.4-.1-.6.1l-.8 1c-.2.2-.3.2-.6.1a7.2 7.2 0 0 1-3-2.7c-.1-.2-.1-.4 0-.5l.6-.8c.1-.2.1-.4 0-.6l-.9-2c-.1-.3-.3-.4-.5-.4z"/></svg>
       <span>WhatsApp 상담신청</span>
     </a>
@@ -116,5 +116,8 @@
   </nav>
   <p class="foot-lang"><a href="https://www.ceramicdentalseoul.com/en/" target="_blank" rel="noopener">English</a> · <a href="https://www.ceramicdentalseoul.com/ja/" target="_blank" rel="noopener">日本語</a></p>
 </main>
+<script>/* 2026-11-13 왓츠앱 유입경로를 손님 모르게 기록 (ceramic2027 src/app/api/wa-click, 디 게이트웨이가 새 대화와 짝지음) */
+document.addEventListener('click',function(e){var a=e.target;while(a&&a.nodeName!=='A')a=a.parentNode;if(!a||!a.getAttribute)return;var h=a.getAttribute('href')||'';if(!/wa\.me\/|api\.whatsapp\.com\/send/.test(h))return;var b=JSON.stringify({s:'Instagram',p:location.pathname,l:(document.documentElement.lang||'').slice(0,2)});try{if(navigator.sendBeacon&&navigator.sendBeacon('https://www.ceramicdentalseoul.com/api/wa-click',b))return;}catch(x){}try{fetch('https://www.ceramicdentalseoul.com/api/wa-click',{method:'POST',body:b,keepalive:true,mode:'no-cors'});}catch(x){}},true);
+</script>
 </body>
 </html>
