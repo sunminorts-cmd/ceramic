@@ -111,5 +111,8 @@
   </nav>
   <p class="foot-lang"><a href="https://www.ceramicdentalseoul.com/en/" target="_blank" rel="noopener">English</a></p>
 </main>
+<script>/* 2026-11-13 왓츠앱·(11-14) 라인 유입경로를 손님 모르게 기록 (ceramic2027 src/app/api/wa-click, 디 게이트웨이가 새 대화와 짝지음) */
+document.addEventListener('click',function(e){var a=e.target;while(a&&a.nodeName!=='A')a=a.parentNode;if(!a||!a.getAttribute)return;var h=a.getAttribute('href')||'';var ch=/wa\.me\/|api\.whatsapp\.com\/send/.test(h)?'whatsapp':/line\.me\/|lin\.ee\/|page\.line\.me\//.test(h)?'line':'';if(!ch)return;var b=JSON.stringify({s:'Instagram',p:location.pathname,l:(document.documentElement.lang||'').slice(0,2),c:ch});try{if(navigator.sendBeacon&&navigator.sendBeacon('https://www.ceramicdentalseoul.com/api/wa-click',b))return;}catch(x){}try{fetch('https://www.ceramicdentalseoul.com/api/wa-click',{method:'POST',body:b,keepalive:true,mode:'no-cors'});}catch(x){}},true);
+</script>
 </body>
 </html>
